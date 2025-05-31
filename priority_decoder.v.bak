@@ -1,0 +1,13 @@
+module priority_decoder
+#(
+	parameter DATA_W = 16,
+	parameter POS_W = 4
+)
+(
+	wire reg 
+)
+;
+
+
+
+endmodule
