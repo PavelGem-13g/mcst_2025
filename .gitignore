@@ -5,3 +5,5 @@ priority_coder/incremental_db
 priority_coder/output_files
 priority_coder/simulation
 fifo/incremental_db/compiled_partitions
+priority_coder/sim
+
