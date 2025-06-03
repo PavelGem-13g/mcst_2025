@@ -20,16 +20,14 @@ endgenerate
 
 wire [POS_W-1:0] priority [DATA_W-1:0];
 
+assign priority[0] = data[0] ? pos[0] : {POS_W{1'b1}};
+
 generate
-	for (i = 0; i < DATA_W; i = i + 1) begin : build_priority
-		if (i == DATA_W-1) begin
-			assign priority[i] = pos[i];
-		end else begin
-			assign priority[i] = data[i] ? pos[i] : priority[i+1];
-		end
+	for (i = 1; i < DATA_W; i = i + 1) begin : build_priority
+		assign priority[i] = data[i] ? pos[i] : priority[i-1];
 	end
 endgenerate
 
-assign position = priority[0];
+assign position = priority[DATA_W-1];
 
 endmodule
